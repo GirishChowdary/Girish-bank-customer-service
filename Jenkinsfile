@@ -26,8 +26,8 @@ pipeline {
     stage('Push image') {
       steps {
         withDockerRegistry([credentialsId: 'docker-hub', url: "https://index.docker.io/v1/"]) {
-          sh  'docker tag bank-customer-service girish99/bank-customer-service:latest'
-          sh '/usr/bin/docker push girish99/bank-customer-service:latest'
+          sh  'docker tag bank-customer-service girish99/myfirsh:latest'
+          sh '/usr/bin/docker push girish99/myfirsh:latest'
         }
       }
     }
