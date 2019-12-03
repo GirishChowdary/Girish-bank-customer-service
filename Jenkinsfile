@@ -30,7 +30,7 @@ pipeline {
          //sh  'docker tag bank-customer-service girish99/myfirsh:latest'
           //sh '/usr/bin/docker push girish99/myfirsh:latest'
           
-        withDockerRegistry([credentialsId: 'ecr:us-east', url: "https://261167483116.dkr.ecr.us-east-2.amazonaws.com/girish"]) {
+        withDockerRegistry([credentialsId: 'us-east-2', url: "https://261167483116.dkr.ecr.us-east-2.amazonaws.com/girish"]) {
           sh  'docker tag girish:latest 261167483116.dkr.ecr.us-east-2.amazonaws.com/girish:latest'
           sh 'docker push 261167483116.dkr.ecr.us-east-2.amazonaws.com/girish:latest'          
         }
