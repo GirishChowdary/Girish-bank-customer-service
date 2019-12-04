@@ -21,18 +21,18 @@ pipeline {
     stage('Docker Build') {
       steps {
         //sh '/usr/bin/docker build -t bank-customer-service .'
-        sh '/usr/bin/docker build -t myrepo .'
+        sh '/usr/bin/docker build -t aaa .'
       }
     }
     stage('Push image') {
       steps {
-        //withDockerRegistry([credentialsId: 'docker-hub', url: "https://index.docker.io/v1/"]) {
-         //sh  'docker tag bank-customer-service girish99/myfirsh:latest'
-          //sh '/usr/bin/docker push girish99/myfirsh:latest'
+        withDockerRegistry([credentialsId: 'docker-hub', url: "https://index.docker.io/v1/"]) {
+         sh  'docker tag bank-customer-service girish99/aaa:latest'
+          sh '/usr/bin/docker push girish99/aaa:latest'
           
-        withDockerRegistry([credentialsId: 'girishaws', url: "https://261167483116.dkr.ecr.us-east-2.amazonaws.com/myrepo"]) {
-          sh  'docker tag myrepo:latest 261167483116.dkr.ecr.us-east-2.amazonaws.com/myrepo:latest'
-          sh 'docker push 261167483116.dkr.ecr.us-east-2.amazonaws.com/myrepo:latest'          
+        //withDockerRegistry([credentialsId: 'girishaws', url: "https://261167483116.dkr.ecr.us-east-2.amazonaws.com/myrepo"]) {
+          //sh  'docker tag myrepo:latest 261167483116.dkr.ecr.us-east-2.amazonaws.com/myrepo:latest'
+          //sh 'docker push 261167483116.dkr.ecr.us-east-2.amazonaws.com/myrepo:latest'          
         }
       }
     }
