@@ -27,7 +27,8 @@ pipeline {
     stage('Push image') {
       steps {
         withDockerRegistry([credentialsId: 'docker-hub', url: "https://index.docker.io/v1/"]) {
-         sh  'docker tag bank-customer-service girish99/aaa:latest'
+        // sh  'docker tag bank-customer-service girish99/aaa:latest'
+          sh '/usr/bin/docker tag bank-customer-service girish99/aaa:latest'
           sh '/usr/bin/docker push girish99/aaa:latest'
           
         //withDockerRegistry([credentialsId: 'girishaws', url: "https://261167483116.dkr.ecr.us-east-2.amazonaws.com/myrepo"]) {
