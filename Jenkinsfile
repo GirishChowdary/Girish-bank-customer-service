@@ -1,7 +1,7 @@
 pipeline {
   agent any
   tools { 
-       // maven 'Maven'
+       maven 'Maven'
         jdk 'JAVA_HOME'
   }
   stages {
@@ -18,12 +18,12 @@ pipeline {
         sh 'echo whoami'
       }
     }
-    stage('Docker Build') {
+   /* stage('Docker Build') {
       steps {
         sh '/usr/bin/docker build -t bank-customer-service .'
        // sh '/usr/bin/docker build -t aaa .'
       }
-    }
+    } 
     stage('Push image') {
       steps {
         //withDockerRegistry([credentialsId: 'docker-hub', url: "https://index.docker.io/v1/"]) {
@@ -36,6 +36,6 @@ pipeline {
           sh 'docker push 261167483116.dkr.ecr.us-east-2.amazonaws.com/pipline:latest'          
         }
       }
-    }
+    } */
   }
 }
