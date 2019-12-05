@@ -18,6 +18,11 @@ pipeline {
         sh 'echo whoami'
       }
     }
+    stage('') {
+      steps {
+       deploy adapters: [tomcat8(path: '', url: 'http://172.31.28.112:8080')], contextPath: 'test', war: '/var/lib/jenkins/workspace/My First Pipeline/target/customer-service-0.0.1-SNAPSHOT.jar' 
+      }
+    }
    /* stage('Docker Build') {
       steps {
         sh '/usr/bin/docker build -t bank-customer-service .'
