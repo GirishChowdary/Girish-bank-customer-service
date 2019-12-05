@@ -26,14 +26,14 @@ pipeline {
     }
     stage('Push image') {
       steps {
-        withDockerRegistry([credentialsId: 'docker-hub', url: "https://index.docker.io/v1/"]) {
+        //withDockerRegistry([credentialsId: 'docker-hub', url: "https://index.docker.io/v1/"]) {
         // sh  'docker tag bank-customer-service girish99/aaa:latest'
-          sh '/usr/bin/docker tag bank-customer-service girish99/aaa:latest'
-          sh '/usr/bin/docker push girish99/aaa:latest'
+          //sh '/usr/bin/docker tag bank-customer-service girish99/aaa:latest'
+          //sh '/usr/bin/docker push girish99/aaa:latest'
           
-        //withDockerRegistry([credentialsId: 'girishaws', url: "https://261167483116.dkr.ecr.us-east-2.amazonaws.com/myrepo"]) {
-          //sh  'docker tag myrepo:latest 261167483116.dkr.ecr.us-east-2.amazonaws.com/myrepo:latest'
-          //sh 'docker push 261167483116.dkr.ecr.us-east-2.amazonaws.com/myrepo:latest'          
+        withDockerRegistry([credentialsId: 'ecr:us-east-2:mycredentials', url: "https://261167483116.dkr.ecr.us-east-2.amazonaws.com/pipline"]) {
+          sh  'docker tag aaa:latest 261167483116.dkr.ecr.us-east-2.amazonaws.com/pipline:latest'
+          sh 'docker push 261167483116.dkr.ecr.us-east-2.amazonaws.com/pipline:latest'          
         }
       }
     }
